@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
+
+
+
+    public function about_us(request $request)
+    {
+
+        $data['cars'] = Car::all();
+        return view('about-us', $data);
+
+    }
     public function index(request $request)
     {
         $data['cars'] = Car::all();

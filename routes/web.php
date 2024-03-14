@@ -18,3 +18,5 @@ Route::get('/',[CarController::class, 'index']);
 Route::get('category/{cars}',[CarController::class, 'category_view']);
 Route::get('car-details/{id}',[CarController::class, 'car_details']);
 Route::get('all-cars',[CarController::class, 'all_cars']);
+Route::get('about-us',[CarController::class, 'about_us']);
+

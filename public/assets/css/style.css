@@ -62,8 +62,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.4;
     color: #000000;
-    margin-bottom: 20px
+    margin-bottom: 2px
 }
+
+
+
 
 input {
     border: none;
@@ -1154,6 +1157,17 @@ p {
 
 .top-bar .search-area form .form-inner button:hover::after {
     transform: skewX(45deg) scale(1, 1)
+}
+
+ul {
+    list-style-type: none;
+    font-size: 11px;
+    padding: 0px 0px 0px 0px;
+}
+
+.text-center {
+    text-align: center !important;
+    font-size: 12px;
 }
 
 .top-bar .topbar-right ul {

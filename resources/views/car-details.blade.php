@@ -73,11 +73,11 @@
                                     <a class="nav-link" href="#car-img">Car Image</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#car-info">Car Info</a>
+                                    <a class="nav-link" href="#overview">Overview</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#overview">Overview</a>
+                                    <a class="nav-link" href="#model">Model</a>
                                 </li>
                             </ul>
                         </nav>
@@ -371,31 +371,153 @@ Interior
                                 <div class="title mb-25">
                                     <h5>Overviews</h5>
                                 </div>
-                                <div class="overview-content">
-                                    <ul>
-                                        <li><span>Make</span> {{$car->name}}</li>
-                                        <li><span>Model</span> {{Str::upper($car->model)}}</li>
-                                        <li><span>Warranty</span> {{$car->manaufacture_warranty}}</li>
-                                        <li><span>Curb Weight</span>{{Str::upper($car->crub_weight)}} mm</li>
-                                        <li><span>Tank Capacity</span>{{Str::upper($car->fuel_tank)}} L</li>
 
 
-                                    </ul>
-                                    <ul>
-                                        <li><span>Retail Network</span> {{Str::upper($car->retail_network)}}</li>
-                                        <li><span>Fuel System</span> {{Str::upper($car->fuel_system)}}</li>
-                                        <li><span>Dimensions</span>{{Str::upper($car->dimensions)}}</li>
-                                        <li><span>Ground Clearance</span>{{Str::upper($car->grround_clreance)}} mm</li>
-                                        <li><span>Fuel Type</span>{{Str::upper($car->fuel_type)}}</li>
+                                <div class="row">
+
+                                    <div class="col-lg-6 col-md-4 col-sm-12 my-2">
+                                        <div>
+                                            <div class="icon">
+                                                <img src="{{url('')}}/public/assets/img/inner-page/icon/dim.svg"   width="50" height="50" alt>
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="text-danger my-2">DIMENSIONS</h6>
+                                                <ul>
+
+                                                    <li><strong>Dimensions (Lxwxh) in mm :</strong>  {{STR::upper($car->dimensions)}} </li>
+                                                    <li><strong>Ground clearance (mm):</strong> {{STR::upper($car->grround_creance)}} </li>
+                                                    <li><strong>Wheelbase (mm):</strong> {{STR::upper($car->wheelbase)}} </li>
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-5 col-md-4 col-sm-12 my-2">
+                                        <div>
+                                            <div class="icon">
+                                                <img src="{{url('')}}/public/assets/img/inner-page/icon/engine.svg"   width="45" height="40" alt>
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="text-danger my-2">ENGINE</h6>
+                                                <ul>
+                                                    <li><strong>Displacement:</strong>  {{STR::upper($car->displacment)}} </li>
+                                                    <li><strong>Fuel System:</strong> {{STR::upper($car->fuel_system)}} </li>
+                                                    <li><strong>Fuel type:</strong> {{STR::upper($car->fuel_type)}} </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
 
-
-                                    </ul>
                                 </div>
-                            </div>
+
+                                <hr class="text-muted">
+                                <div class="row">
+
+
+                                    <div class="col-lg-6 col-md-4 col-sm-12 my-2">
+                                        <div>
+                                            <div class="icon">
+                                                <img src="{{url('')}}/public/assets/img/inner-page/icon/gear.svg"   width="50" height="50" alt>
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="text-danger my-2">TRANSMISSION</h6>
+                                                <ul>
+
+                                                    <li><strong>Gearbox: </strong>  {{STR::upper($car->gearbox)}} </li>
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="col-lg-5 col-md-4 col-sm-12 my-2">
+                                        <div>
+                                            <div class="icon">
+                                                <img src="{{url('')}}/public/assets/img/inner-page/icon/category-car2.svg"   width="75" height="50" alt>
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="text-danger my-2">WEIGHT/CAPACITIES</h6>
+                                                <ul>
+
+                                                    <li><strong>Curb weight (kg) :</strong>  {{STR::upper($car->crub_weight)}} </li>
+                                                    <li><strong>Fuel tank capacity (L) :</strong> {{STR::upper($car->fuel_tank)}} </li>
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+
+                                    </div>
+                                </div>
+
+                                <hr class="text-muted">
+
+
+                                <div class="row">
+
+
+                                    <div class="col-lg-12 col-md-4 col-sm-12 my-2">
+                                        <div>
+                                            <div class="icon">
+                                                <img src="{{url('')}}/public/assets/img/inner-page/icon/war.svg"   width="50" height="50" alt>
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="text-danger my-2">WARRANTY</h6>
+                                                <ul>
+
+                                                    <li><strong>Manufacturer Warranty :</strong>  {{STR::upper($car->manaufacture_warranty)}} </li>
+                                                    <li><strong>Retail Network :</strong> {{STR::upper($car->retail_network)}} </li>
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                </div>
                         </div>
 
+                        <div class="single-item mb-50" id="model">
+                            <div class="model">
+                                <div class="title mb-25">
+                                    <h5>MODELS AVAILABLE</h5>
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="col">
+                                        <h6 class="my-2">{{$car->model_type}}</h6>
+                                        <button class="btn btn-danger btn-block"> Download Spec Sheet </button>
+                                    </div>
+
+
+
+
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
 
                     </div>
                 </div>

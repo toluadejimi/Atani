@@ -121,9 +121,6 @@
         </div>
     </div>
 </div>
-
-
-
 <div class="modal signUp-modal fade" id="logInModal01" tabindex="-1" aria-labelledby="signUpModal01Label"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -182,7 +179,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal signUp-modal sell-with-us fade" id="sellUsModal01" tabindex="-1" aria-labelledby="sellUsModal01Label"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -280,7 +276,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal adSearch-modal fade" id="adSearchModal01" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -488,6 +483,9 @@
     </div>
 </div>
 
+
+
+
 <header class="header-area style-1">
     <div class="header-logo d-lg-none d-flex">
         <a href="/"><img alt="image" class="img-fluid" src="{{url('')}}/public/assets/img/logo.svg"></a>
@@ -498,18 +496,22 @@
                 <a href="/"><img alt="image" src="{{url('')}}/public/assets/img/logo.svg"></a>
             </div>
         </div>
+
+{{--        menulist--}}
+
         <ul class="menu-list">
-            <li class="menu-item-has-children active">
+
+
+            <li class="active">
                 <a href="/">Home</a>
             </li>
 
-            <li class="menu-item-has-children">
-                <a href="/">About US</a>
+            <li class="">
+                <a href="/">Contact US</a>
             </li>
 
-
             <li class="menu-item-has-children">
-                <a href="index2.html#" class="drop-down">OUR SERVICES</a><i class="bi bi-plus dropdown-icon"></i>
+                <a href="#" class="drop-down">OUR SERVICES</a><i class="bi bi-plus dropdown-icon"></i>
                 <ul class="sub-menu">
                     <li>
                         <a href="#">VEHICLES</a>
@@ -522,7 +524,7 @@
                             </ul>
                             <li><a href="">HILUX</a></li>
                             <li><a href="">COROLLA</a></li>
-                            <li><a href="">CAMREYr</a></li>
+                            <li><a href="">CAMREY</a></li>
                             <li><a href="">COROLLA CROSS</a>
                             <li><a href="">RAV 4</a></li>
                         </ul>
@@ -538,7 +540,7 @@
                     </li>
 
                     <li>
-                        <a href="index2.html#">SPEARPARTS</a>
+                        <a href="index2.html#">SPARE PARTS</a>
                         <i class="bi bi-plus dropdown-icon"></i>
                         <ul class="sub-menu">
                             <li><a href="">Car Listing Left Sidebar</a></li>
@@ -551,32 +553,47 @@
                 </ul>
             </li>
 
+            <li class="">
+                <a href="about-us">About US</a>
+            </li>
 
-            <li class="menu-item-has-children">
-                <a href="index2.html#" class="drop-down">AFTER SERVICE</a><i class="bi bi-plus dropdown-icon"></i>
-                <ul class="sub-menu">
-                    <li>
-                        <ul class="sub-menu">
-                            <a href="#">SERVICE MY VEHICLE</a><i class="bi bi-plus dropdown-icon"></i>
-                            <ul class="sub-menu">
-                                <li><a href="">ONLINE BOOKING</a></li>
-                                <li><a href="">WHY CHOOSE ATANI</a></li>
-                            </ul>
-                            <li><a href="">WARANTY CONDITION</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-
-            <li class="menu-item-has-children">
-                <a href="/">SPEARPARTS</a>
+            <li class="">
+                <a href="/">News</a>
             </li>
 
 
-            </li>
+
+
+            {{--                <li class="menu-item-has-children">--}}
+            {{--                    <a href="index2.html#" class="drop-down">AFTER SERVICE</a><i class="bi bi-plus dropdown-icon"></i>--}}
+            {{--                    <ul class="sub-menu">--}}
+            {{--                        <li>--}}
+            {{--                            <ul class="sub-menu">--}}
+            {{--                                <a href="#">SERVICE MY VEHICLE</a><i class="bi bi-plus dropdown-icon"></i>--}}
+            {{--                                <ul class="sub-menu">--}}
+            {{--                                    <li><a href="">ONLINE BOOKING</a></li>--}}
+            {{--                                    <li><a href="">WHY CHOOSE ATANI</a></li>--}}
+            {{--                                </ul>--}}
+            {{--                                <li><a href="">WARANTY CONDITION</a></li>--}}
+            {{--                            </ul>--}}
+            {{--                        </li>--}}
+            {{--                    </ul>--}}
+
+
+            {{--                <li class="menu-item-has-children">--}}
+            {{--                    <a href="/">SPARE PARTS</a>--}}
+            {{--                </li>--}}
+
+
+            {{--                </li>--}}
 
 
         </ul>
+
+
+
+
+
         <div class="topbar-right d-lg-none d-block">
             <a href="single-brand-category.html#">
                 <svg width="16" height="16" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
