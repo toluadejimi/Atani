@@ -4,11 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
 
+    public function contact_us(request $request)
+    {
+
+        $data['cars'] = Car::all();
+        return view('contact-us', $data);
+
+    }
+
+
+
+    public function news(request $request)
+    {
+
+        $data['cars'] = Car::all();
+        $data['news'] = Post::latest()->all();
+
+
+        return view('news', $data);
+
+    }
 
 
     public function about_us(request $request)

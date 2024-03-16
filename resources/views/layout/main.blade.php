@@ -645,7 +645,7 @@
                 </li>
 
                 <li class="">
-                    <a href="/">Contact US</a>
+                    <a href="/contact-us">Contact US</a>
                 </li>
 
                 <li class="menu-item-has-children">

@@ -34,6 +34,8 @@
 
     <title>ATANIMOTORS</title>
     <link rel="icon" href="{{url('')}}/public/assets/img/sm-logo.svg" type="image/gif" sizes="20x20">
+    <script src="//code.tidio.co/ytjedfkrx16v5rqtviqjd4inckpmvcjt.js" async></script>
+
 </head>
 <body class="tt-magic-cursor">
 
@@ -507,7 +509,7 @@
             </li>
 
             <li class="">
-                <a href="/">Contact US</a>
+                <a href="/contact-us">Contact US</a>
             </li>
 
             <li class="menu-item-has-children">
