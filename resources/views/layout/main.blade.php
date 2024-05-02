@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+
     <link href="{{url('')}}/public/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{url('')}}/public/assets/css/jquery-ui.css" rel="stylesheet">
 
@@ -79,7 +83,8 @@
                         class="bi bi-x"></i></button>
             </div>
             <div class="modal-body">
-                <form action="book-test-drive" method="POST">
+                <form action="book" method="POST">
+                    @csrf
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="form-inner">
@@ -101,10 +106,17 @@
                         </div>
 
                         <div class="col-md-12">
+                            <div class="form-inner">
+                                <label>Enter your Phone Number*</label>
+                                <input type="text" name="phone" required placeholder="Type phone number">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
                             <label>Select your model*</label>
-                            <select class="form-control" required name="car_model">
+                            <select class="form-control" required name="car">
                                 @foreach($cars as $data)
-                                <option value="{{$data->name}}">{{$data->name}}</option>
+                                    <option value="{{$data->name}}">{{$data->name}}</option>
                                 @endforeach
                             </select>
 
@@ -127,6 +139,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal signUp-modal fade" id="logInModal01" tabindex="-1" aria-labelledby="logInModal01Label"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -517,28 +530,25 @@
         </li>
 
 
+        {{--        <li class="menu-item-has-children">--}}
+        {{--            <a href="index2.html#" class="drop-down">AFTER SERVICE</a><i class="bi bi-plus dropdown-icon"></i>--}}
+        {{--            <ul class="sub-menu">--}}
+        {{--                <li>--}}
+        {{--                    <ul class="sub-menu">--}}
+        {{--                        <a href="#">SERVICE MY VEHICLE</a><i class="bi bi-plus dropdown-icon"></i>--}}
+        {{--                        <ul class="menu-item">--}}
+        {{--                            <li><a href="">ONLINE BOOKING</a></li>--}}
+        {{--                            <li><a href="">WHY CHOOSE ATANI</a></li>--}}
+        {{--                        </ul>--}}
+        {{--                        <li><a href="">WARANTY CONDITION</a></li>--}}
+        {{--                    </ul>--}}
+        {{--                </li>--}}
+        {{--            </ul>--}}
 
 
-
-{{--        <li class="menu-item-has-children">--}}
-{{--            <a href="index2.html#" class="drop-down">AFTER SERVICE</a><i class="bi bi-plus dropdown-icon"></i>--}}
-{{--            <ul class="sub-menu">--}}
-{{--                <li>--}}
-{{--                    <ul class="sub-menu">--}}
-{{--                        <a href="#">SERVICE MY VEHICLE</a><i class="bi bi-plus dropdown-icon"></i>--}}
-{{--                        <ul class="menu-item">--}}
-{{--                            <li><a href="">ONLINE BOOKING</a></li>--}}
-{{--                            <li><a href="">WHY CHOOSE ATANI</a></li>--}}
-{{--                        </ul>--}}
-{{--                        <li><a href="">WARANTY CONDITION</a></li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
-
-
-{{--        <li class="menu-item-has-children">--}}
-{{--            <a href="/">SPARE PARTS</a>--}}
-{{--        </li>--}}
+        {{--        <li class="menu-item-has-children">--}}
+        {{--            <a href="/">SPARE PARTS</a>--}}
+        {{--        </li>--}}
 
 
         </li>
@@ -586,14 +596,37 @@
             <a href="/"><img src="{{url('')}}/public/assets/img/home2/icon/home2-logo.svg" alt></a>
         </div>
 
+
         <div class="search-area">
-            <form>
+            <form action="search" method="post">
+                @csrf
                 <div class="form-inner">
-                    <input type="text" placeholder="Search for cars">
+                    <input type="text" name="name" required class="typeahead form-control" placeholder="Search for cars">
                     <button type="submit"><i class="bi bi-search"></i></button>
                 </div>
             </form>
+
+
+
+            <script type="text/javascript">
+                var path = "{{ url('autocomplete') }}";
+                $('input.typeahead').typeahead({
+                    source:  function (query, process) {
+                        return $.get(path, { query: query }, function (data) {
+                            return process(data);
+                        });
+                    }
+                });
+            </script>
+
+
+
         </div>
+
+
+
+
+
         <div class="topbar-right">
             <div class="hotline-area d-xl-flex d-none">
                 <div class="icon">
@@ -700,194 +733,192 @@
                 </li>
 
 
+                {{--                <li class="menu-item-has-children">--}}
+                {{--                    <a href="index2.html#" class="drop-down">AFTER SERVICE</a><i class="bi bi-plus dropdown-icon"></i>--}}
+                {{--                    <ul class="sub-menu">--}}
+                {{--                        <li>--}}
+                {{--                            <ul class="sub-menu">--}}
+                {{--                                <a href="#">SERVICE MY VEHICLE</a><i class="bi bi-plus dropdown-icon"></i>--}}
+                {{--                                <ul class="sub-menu">--}}
+                {{--                                    <li><a href="">ONLINE BOOKING</a></li>--}}
+                {{--                                    <li><a href="">WHY CHOOSE ATANI</a></li>--}}
+                {{--                                </ul>--}}
+                {{--                                <li><a href="">WARANTY CONDITION</a></li>--}}
+                {{--                            </ul>--}}
+                {{--                        </li>--}}
+                {{--                    </ul>--}}
 
 
-{{--                <li class="menu-item-has-children">--}}
-{{--                    <a href="index2.html#" class="drop-down">AFTER SERVICE</a><i class="bi bi-plus dropdown-icon"></i>--}}
-{{--                    <ul class="sub-menu">--}}
-{{--                        <li>--}}
-{{--                            <ul class="sub-menu">--}}
-{{--                                <a href="#">SERVICE MY VEHICLE</a><i class="bi bi-plus dropdown-icon"></i>--}}
-{{--                                <ul class="sub-menu">--}}
-{{--                                    <li><a href="">ONLINE BOOKING</a></li>--}}
-{{--                                    <li><a href="">WHY CHOOSE ATANI</a></li>--}}
-{{--                                </ul>--}}
-{{--                                <li><a href="">WARANTY CONDITION</a></li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
+                {{--                <li class="menu-item-has-children">--}}
+                {{--                    <a href="/">SPARE PARTS</a>--}}
+                {{--                </li>--}}
 
 
-{{--                <li class="menu-item-has-children">--}}
-{{--                    <a href="/">SPARE PARTS</a>--}}
-{{--                </li>--}}
-
-
-{{--                </li>--}}
+                {{--                </li>--}}
 
 
             </ul>
-{{--            <ul class="menu-list">--}}
-{{--                <li class="position-inherit">--}}
-{{--                    <a href="index2.html#" class="drop-down">NEW CAR</a>--}}
-{{--                    <i class="bi bi-plus dropdown-icon d-lg-none d-block"></i>--}}
-{{--                    <div class="mega-menu">--}}
-{{--                        <ul class="menu-row">--}}
-{{--                            <li class="menu-single-item">--}}
-{{--                                <h6>Browse by Brand</h6>--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="single-brand-category.html">Merchedes Benz (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/merchedes.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">Volkswagen (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/volkswagen.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">Ferrari (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/ferrari.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Mazda (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/mazda.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Mitsubishi (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/mitsubishi.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">Lamborghini (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/lamborghini.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">Tesla (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/tesla.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Toyota (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/toyota.svg" alt></a></li>--}}
-{{--                                    <li class="explore-more-btn">--}}
-{{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </li>--}}
-{{--                            <li class="menu-single-item">--}}
-{{--                                <h6>Popular Models</h6>--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="category/camry">Toyota Camry</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Ford Mustang</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Volkswagen Golf</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Mercedes C-Class</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Audi A4</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Jeep Wrangler</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Mazda CX-5</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Chevrolet Corvette</a></li>--}}
-{{--                                    <li class="explore-more-btn">--}}
-{{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </li>--}}
-{{--                            <li class="menu-single-item">--}}
-{{--                                <h6>Popular Cities </h6>--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="single-brand-category.html">Panama City (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/panama.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Sydne City (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/sydne.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Melbourne City (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/melbourne.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">New Delhi (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/delhi.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">New York (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/newYork.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Menchester City (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/menchester.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">City of Greece (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/greece.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">City of Abu-dabi (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/abudabi.svg" alt></a></li>--}}
-{{--                                    <li class="explore-more-btn">--}}
-{{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li class="position-inherit">--}}
-{{--                    <a href="index2.html#" class="drop-down">USED CAR</a>--}}
-{{--                    <i class="bi bi-plus dropdown-icon d-lg-none d-block"></i>--}}
-{{--                    <div class="mega-menu">--}}
-{{--                        <ul class="menu-row">--}}
-{{--                            <li class="menu-single-item">--}}
-{{--                                <h6>Browse by Brand</h6>--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="single-brand-category.html">Merchedes Benz (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/merchedes.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">Volkswagen (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/volkswagen.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">Ferrari (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/ferrari.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Mazda (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/mazda.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Mitsubishi (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/mitsubishi.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">Lamborghini (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/lamborghini.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">Tesla (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/tesla.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Toyota (10) <img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/toyota.svg" alt></a></li>--}}
-{{--                                    <li class="explore-more-btn">--}}
-{{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </li>--}}
-{{--                            <li class="menu-single-item">--}}
-{{--                                <h6>Popular Models</h6>--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="category/camry">Toyota Camry</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Ford Mustang</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Volkswagen Golf</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Mercedes C-Class</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Audi A4</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Jeep Wrangler</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Mazda CX-5</a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Chevrolet Corvette</a></li>--}}
-{{--                                    <li class="explore-more-btn">--}}
-{{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </li>--}}
-{{--                            <li class="menu-single-item">--}}
-{{--                                <h6>Popular Cities </h6>--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="single-brand-category.html">Panama City (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/panama.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Sydne City (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/sydne.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Melbourne City (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/melbourne.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">New Delhi (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/delhi.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">New York (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/newYork.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">Menchester City (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/menchester.svg" alt></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="single-brand-category.html">City of Greece (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/greece.svg" alt></a></li>--}}
-{{--                                    <li><a href="single-brand-category.html">City of Abu-dabi (10)<img--}}
-{{--                                                src="{{url('')}}/public/assets/img/menu-icon/abudabi.svg" alt></a></li>--}}
-{{--                                    <li class="explore-more-btn">--}}
-{{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li>--}}
-{{--                    <a href="contact.html" class="drop-down">CONTACT US</a>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
+            {{--            <ul class="menu-list">--}}
+            {{--                <li class="position-inherit">--}}
+            {{--                    <a href="index2.html#" class="drop-down">NEW CAR</a>--}}
+            {{--                    <i class="bi bi-plus dropdown-icon d-lg-none d-block"></i>--}}
+            {{--                    <div class="mega-menu">--}}
+            {{--                        <ul class="menu-row">--}}
+            {{--                            <li class="menu-single-item">--}}
+            {{--                                <h6>Browse by Brand</h6>--}}
+            {{--                                <ul>--}}
+            {{--                                    <li><a href="single-brand-category.html">Merchedes Benz (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/merchedes.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Volkswagen (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/volkswagen.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Ferrari (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/ferrari.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Mazda (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/mazda.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Mitsubishi (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/mitsubishi.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Lamborghini (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/lamborghini.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Tesla (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/tesla.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Toyota (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/toyota.svg" alt></a></li>--}}
+            {{--                                    <li class="explore-more-btn">--}}
+            {{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
+            {{--                                    </li>--}}
+            {{--                                </ul>--}}
+            {{--                            </li>--}}
+            {{--                            <li class="menu-single-item">--}}
+            {{--                                <h6>Popular Models</h6>--}}
+            {{--                                <ul>--}}
+            {{--                                    <li><a href="category/camry">Toyota Camry</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Ford Mustang</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Volkswagen Golf</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Mercedes C-Class</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Audi A4</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Jeep Wrangler</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Mazda CX-5</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Chevrolet Corvette</a></li>--}}
+            {{--                                    <li class="explore-more-btn">--}}
+            {{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
+            {{--                                    </li>--}}
+            {{--                                </ul>--}}
+            {{--                            </li>--}}
+            {{--                            <li class="menu-single-item">--}}
+            {{--                                <h6>Popular Cities </h6>--}}
+            {{--                                <ul>--}}
+            {{--                                    <li><a href="single-brand-category.html">Panama City (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/panama.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Sydne City (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/sydne.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Melbourne City (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/melbourne.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">New Delhi (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/delhi.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">New York (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/newYork.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Menchester City (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/menchester.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">City of Greece (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/greece.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">City of Abu-dabi (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/abudabi.svg" alt></a></li>--}}
+            {{--                                    <li class="explore-more-btn">--}}
+            {{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
+            {{--                                    </li>--}}
+            {{--                                </ul>--}}
+            {{--                            </li>--}}
+            {{--                        </ul>--}}
+            {{--                    </div>--}}
+            {{--                </li>--}}
+            {{--                <li class="position-inherit">--}}
+            {{--                    <a href="index2.html#" class="drop-down">USED CAR</a>--}}
+            {{--                    <i class="bi bi-plus dropdown-icon d-lg-none d-block"></i>--}}
+            {{--                    <div class="mega-menu">--}}
+            {{--                        <ul class="menu-row">--}}
+            {{--                            <li class="menu-single-item">--}}
+            {{--                                <h6>Browse by Brand</h6>--}}
+            {{--                                <ul>--}}
+            {{--                                    <li><a href="single-brand-category.html">Merchedes Benz (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/merchedes.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Volkswagen (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/volkswagen.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Ferrari (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/ferrari.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Mazda (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/mazda.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Mitsubishi (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/mitsubishi.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Lamborghini (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/lamborghini.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Tesla (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/tesla.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Toyota (10) <img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/toyota.svg" alt></a></li>--}}
+            {{--                                    <li class="explore-more-btn">--}}
+            {{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
+            {{--                                    </li>--}}
+            {{--                                </ul>--}}
+            {{--                            </li>--}}
+            {{--                            <li class="menu-single-item">--}}
+            {{--                                <h6>Popular Models</h6>--}}
+            {{--                                <ul>--}}
+            {{--                                    <li><a href="category/camry">Toyota Camry</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Ford Mustang</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Volkswagen Golf</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Mercedes C-Class</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Audi A4</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Jeep Wrangler</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Mazda CX-5</a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Chevrolet Corvette</a></li>--}}
+            {{--                                    <li class="explore-more-btn">--}}
+            {{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
+            {{--                                    </li>--}}
+            {{--                                </ul>--}}
+            {{--                            </li>--}}
+            {{--                            <li class="menu-single-item">--}}
+            {{--                                <h6>Popular Cities </h6>--}}
+            {{--                                <ul>--}}
+            {{--                                    <li><a href="single-brand-category.html">Panama City (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/panama.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Sydne City (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/sydne.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Melbourne City (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/melbourne.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">New Delhi (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/delhi.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">New York (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/newYork.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">Menchester City (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/menchester.svg" alt></a>--}}
+            {{--                                    </li>--}}
+            {{--                                    <li><a href="single-brand-category.html">City of Greece (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/greece.svg" alt></a></li>--}}
+            {{--                                    <li><a href="single-brand-category.html">City of Abu-dabi (10)<img--}}
+            {{--                                                src="{{url('')}}/public/assets/img/menu-icon/abudabi.svg" alt></a></li>--}}
+            {{--                                    <li class="explore-more-btn">--}}
+            {{--                                        <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>--}}
+            {{--                                    </li>--}}
+            {{--                                </ul>--}}
+            {{--                            </li>--}}
+            {{--                        </ul>--}}
+            {{--                    </div>--}}
+            {{--                </li>--}}
+            {{--                <li>--}}
+            {{--                    <a href="contact.html" class="drop-down">CONTACT US</a>--}}
+            {{--                </li>--}}
+            {{--            </ul>--}}
         </div>
         <div class="nav-right d-flex jsutify-content-end align-items-center">
 
@@ -909,7 +940,31 @@
         </div>
     </header>
 
+
+    @if ($errors->any())
+        <div class="alert alert-danger my-4">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+    @if (session()->has('error'))
+        <div class="alert alert-danger mt-2">
+            {{ session()->get('error') }}
+        </div>
+    @endif
+
+
 </div>
+
+
 
 @yield('content')
 
@@ -1000,6 +1055,9 @@
 
 <script src="{{url('')}}/public/assets/js/wow.min.js"></script>
 
+{{--<script src="{{url('')}}/public/assets/js/typehead.js"></script>--}}
+
+
 <script src="{{url('')}}/public/assets/js/jquery.counterup.min.js"></script>
 
 <script src="{{url('')}}/public/assets/js/isotope.pkgd.min.js"></script>
@@ -1017,6 +1075,8 @@
 <script src="{{url('')}}/public/assets/js/jquery.fancybox.min.js"></script>
 
 <script src="{{url('')}}/public/assets/js/custom.js"></script>
+
+
 <script>
     $(".marquee_text").marquee({
         direction: "left",
@@ -1035,5 +1095,10 @@
         startVisible: true,
     });
 </script>
+
+
+
+
+
 </body>
 </html>

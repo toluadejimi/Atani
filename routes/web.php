@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +23,21 @@ Route::get('about-us',[CarController::class, 'about_us']);
 Route::get('contact-us',[CarController::class, 'contact_us']);
 Route::get('news',[CarController::class, 'news']);
 
+Route::get('search2',[SearchController::class, 'search2']);
 
+
+
+
+Route::controller(SearchController::class)->group(function(){
+    Route::get('autocomplete', 'autocomplete')->name('autocomplete');
+    Route::post('search', 'search')->name('search');
+    Route::post('book', 'book')->name('book');
+    Route::post('book2', 'book2')->name('book2');
+    Route::post('book3', 'book3')->name('book3');
+
+
+
+
+
+});
 

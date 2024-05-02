@@ -283,36 +283,37 @@ Contact Us
                 </div>
                 <div class="col-lg-7">
                     <div class="inquiry-form">
-                        <form>
+                        <form action="/book3" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-inner mb-30">
                                         <label>Full Name*</label>
-                                        <input type="text" placeholder="Jackson Mile">
+                                        <input type="text" name="first_name" placeholder="Jackson Mile">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-inner mb-30">
                                         <label>Phone*</label>
-                                        <input type="text" placeholder="Ex- +880-13* ** ***">
+                                        <input type="text" name="phone" placeholder="Ex- +234-13* ** ***">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-inner mb-30">
                                         <label>Email <span>(Optional)</span></label>
-                                        <input type="email" placeholder="Ex- info@gmail.com">
+                                        <input type="email" name="email" placeholder="Ex- info@gmail.com">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-inner mb-30">
                                         <label>Subject*</label>
-                                        <input type="email" placeholder="Subject">
+                                        <input type="text" name="subject" placeholder="Subject">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-inner mb-30">
                                         <label>Short Notes*</label>
-                                        <textarea placeholder="Write Something..."></textarea>
+                                        <textarea name="message" placeholder="Write Something..."></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">

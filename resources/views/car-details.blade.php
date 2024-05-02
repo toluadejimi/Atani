@@ -502,10 +502,10 @@ Interior
 
                                 <div class="row">
 
-                                    <div class="col">
-                                        <h6 class="my-2">{{$car->model_type}}</h6>
-                                        <button class="btn btn-danger btn-block"> Download Spec Sheet </button>
-                                    </div>
+{{--                                    <div class="col">--}}
+{{--                                        <h6 class="my-2">{{$car->model_type}}</h6>--}}
+{{--                                        <button class="btn btn-danger btn-block"> Download Spec Sheet </button>--}}
+{{--                                    </div>--}}
 
 
 
@@ -540,17 +540,17 @@ Interior
                                 <h4>To More inquiry </h4>
                                 <p>Send us a message</p>
                             </div>
-                            <form action="send-message" method="POST">
+                            <form action="/book2" method="POST">
                                 @csrf
 
                                 <div class="form-inner mb-20">
                                     <label>Name*</label>
-                                    <input type="text" placeholder="Ex- Jhon Numan">
+                                    <input type="text" name="first_name" placeholder="Ex- Jhon Numan">
                                 </div>
 
                                 <div class="form-inner mb-20">
                                     <label>Email*</label>
-                                    <input type="email" placeholder="Ex- info@gmail.com">
+                                    <input type="email" name="email" placeholder="Ex- info@gmail.com">
                                 </div>
                                 <div class="form-inner mb-20">
                                     <label>Phone</label>
@@ -558,7 +558,7 @@ Interior
                                 </div>
                                 <div class="form-inner mb-20">
                                     <label>Message*</label>
-                                    <textarea placeholder="Write your message..."></textarea>
+                                    <textarea name="message" placeholder="Write your message..."></textarea>
                                 </div>
                                 <div class="form-inner">
                                     <button class="primary-btn3" type="submit">
@@ -571,6 +571,8 @@ Interior
                                     </button>
                                 </div>
                             </form>
+
+
                         </div>
 
                     </div>

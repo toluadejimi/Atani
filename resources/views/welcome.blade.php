@@ -471,84 +471,6 @@
 {{--    </div>--}}
 {{--</div>--}}
 
-<div class="how-it-work-section mb-100">
-    <div class="container">
-        <div class="row mb-50 wow fadeInUp" data-wow-delay="200ms">
-            <div class="col-lg-12 d-flex align-items-end justify-content-between gap-3 flex-wrap">
-                <div class="section-title-2">
-                    <h2>How Does It Work</h2>
-                    <p>Here are some of the featured cars in different categories</p>
-                </div>
-
-            </div>
-        </div>
-        <div class="row wow fadeInUp" data-wow-delay="300ms">
-            <div class="col-lg-12">
-                <div class="work-process-group">
-                    <div class="row justify-content-center g-lg-0 gy-5">
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="single-work-process text-center">
-                                <div class="step">
-                                    <span>01</span>
-                                </div>
-                                <div class="icon">
-                                    <img src="{{url('')}}/public/assets/img/home2/icon/loaction.svg" alt>
-                                </div>
-                                <div class="content">
-                                    <h6>Find your Car</h6>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="single-work-process text-center">
-                                <div class="step">
-                                    <span>02</span>
-                                </div>
-                                <div class="icon">
-                                    <img src="{{url('')}}/public/assets/img/home2/icon/contact.svg" alt>
-                                </div>
-                                <div class="content">
-                                    <h6>Contact With Us</h6>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="single-work-process text-center">
-                                <div class="step">
-                                    <span>03</span>
-                                </div>
-                                <div class="icon">
-                                    <img src="{{url('')}}/public/assets/img/home2/icon/pay.svg" alt>
-                                </div>
-                                <div class="content">
-                                    <h6>Pay For The Car</h6>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="single-work-process text-center">
-                                <div class="step">
-                                    <span>04</span>
-                                </div>
-                                <div class="icon">
-                                    <img src="{{url('')}}/public/assets/img/home2/icon/recieve.svg" alt>
-                                </div>
-                                <div class="content">
-                                    <h6>Recieve The Car</h6>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 
 
@@ -558,7 +480,6 @@
             <div class="col-lg-12">
                 <div class="section-title-2 text-center">
                     <h2>Browse Available  Car </h2>
-                    <p>There has 30+ Brand Category Available </p>
                 </div>
             </div>
         </div>

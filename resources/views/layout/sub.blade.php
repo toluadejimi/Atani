@@ -9,6 +9,11 @@
     <link href="{{url('')}}/public/assets/css/jquery-ui.css" rel="stylesheet">
     <link href="{{url('')}}/public/assets/css/jquery-ui.css" rel="stylesheet">
 
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+
+
     <link href="{{url('')}}/public/assets/css/bootstrap-icons.css" rel="stylesheet">
 
     <link href="{{url('')}}/public/assets/css/all.min.css" rel="stylesheet">
@@ -75,7 +80,8 @@
                         class="bi bi-x"></i></button>
             </div>
             <div class="modal-body">
-                <form action="book-test-drive" method="POST">
+                <form action="/book" method="POST">
+                    @csrf
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="form-inner">
@@ -97,8 +103,15 @@
                         </div>
 
                         <div class="col-md-12">
+                            <div class="form-inner">
+                                <label>Enter your Phone Number*</label>
+                                <input type="text" name="phone" required placeholder="Type phone number">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
                             <label>Select your model*</label>
-                            <select class="form-control" required name="car_model">
+                            <select class="form-control" required name="car">
                                 @foreach($cars as $data)
                                     <option value="{{$data->name}}">{{$data->name}}</option>
                                 @endforeach
@@ -123,64 +136,7 @@
         </div>
     </div>
 </div>
-<div class="modal signUp-modal fade" id="logInModal01" tabindex="-1" aria-labelledby="signUpModal01Label"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="signUpModal01Label">BOOK A TEST DRIVE</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bi bi-x"></i></button>
-            </div>
-            <div class="modal-body">
-                <form action="book-test-drive" method="POST">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="form-inner">
-                                <label>First Name*</label>
-                                <input type="text" name="first_name" required placeholder="John">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-inner">
-                                <label>Last Name*</label>
-                                <input type="text" name="last_name" required placeholder="Doe">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-inner">
-                                <label>Enter your email address*</label>
-                                <input type="email" name="email" required placeholder="Type email">
-                            </div>
-                        </div>
 
-                        <div class="col-md-12">
-                            <label>Select your model*</label>
-                            <select class="form-control" required name="car_model">
-                                @foreach($cars as $data)
-                                    <option value="{{$data->name}}">{{$data->name}}</option>
-                                @endforeach
-                            </select>
-
-                        </div>
-
-
-                        <div class="col-md-12">
-                            <div class="form-inner">
-                                <button class="primary-btn2 text-white" type="submit">Continue</button>
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="modal signUp-modal sell-with-us fade" id="sellUsModal01" tabindex="-1" aria-labelledby="sellUsModal01Label"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -460,19 +416,55 @@
     <div class="company-logo">
         <a href="/"><img src="{{url('')}}/public/assets/img/logo.svg" alt></a>
     </div>
+
+
+
+
+
+
+
+
     <div class="search-area">
-        <form>
+        <form action="search2" method="get">
+            @csrf
             <div class="form-inner">
-                <input type="text" placeholder="Search car names or model">
+                <input type="text" name="name" required class="typeahead form-control" placeholder="Search for cars">
                 <button type="submit"><i class="bi bi-search"></i></button>
             </div>
         </form>
+
+
+
+        <script type="text/javascript">
+            var path = "{{ url('autocomplete') }}";
+            $('input.typeahead').typeahead({
+                source:  function (query, process) {
+                    return $.get(path, { query: query }, function (data) {
+                        return process(data);
+                    });
+                }
+            });
+        </script>
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="topbar-right">
         <ul>
-
-
             <li>
+
                 <button type="button" class="primary-btn1 text-white" data-bs-toggle="modal" data-bs-target="#signUpModal01">
                     <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -649,7 +641,31 @@
             <span></span>
         </div>
     </div>
+
+
 </header>
+
+
+@if ($errors->any())
+    <div class="alert alert-danger my-4">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+@if (session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
+@if (session()->has('error'))
+    <div class="alert alert-danger mt-2">
+        {{ session()->get('error') }}
+    </div>
+@endif
+
 
 @yield('content')
 

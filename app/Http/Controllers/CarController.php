@@ -65,14 +65,35 @@ class CarController extends Controller
     }
 
 
-    public function car_details($id)
+    public function car_details(request $request, $id)
     {
+
+
+        if($id == "search2"){
+
+            $id = Car::where('name', $request->name)->first()->id;
+            $data['car'] = Car::where('id', $id)->first();
+            $data['cars'] = Car::all();
+            $data['cat'] = Category::where('name', $data['car']->model)->first();
+
+            return view('car-details', $data);
+
+
+
+        }
+
         $data['car'] = Car::where('id', $id)->first();
         $data['cars'] = Car::all();
         $data['cat'] = Category::where('name', $data['car']->model)->first();
-
-
         return view('car-details', $data);
+
+
+
+
+
+
+
+
 
     }
 
