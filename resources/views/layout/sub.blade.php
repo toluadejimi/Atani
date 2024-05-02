@@ -511,36 +511,22 @@
                         <a href="#">VEHICLES</a>
                         <i class="bi bi-plus dropdown-icon"></i>
                         <ul class="sub-menu">
-                            <a href="#">LAND CRUISER</a><i class="bi bi-plus dropdown-icon"></i>
-                            <ul class="sub-menu">
-                                <li><a href="">LAND CRUISER 300</a></li>
-                                <li><a href="">LAND CRUISER 79</a></li>
-                            </ul>
-                            <li><a href="">HILUX</a></li>
-                            <li><a href="">COROLLA</a></li>
-                            <li><a href="">CAMREY</a></li>
-                            <li><a href="">COROLLA CROSS</a>
-                            <li><a href="">RAV 4</a></li>
+                            @foreach($cars as $data)
+                                <li><a href="/car-details/{{$data->id}}">{{$data->name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li>
                         <a href="/">AFTER SALES</a>
                         <i class="bi bi-plus dropdown-icon"></i>
                         <ul class="sub-menu">
-                            <li><a href="">Car Listing Left Sidebar</a></li>
-                            <li><a href="">Car Listing Right Sidebar</a></li>
-                            <li><a href="">Car Listing No Sidebar</a></li>
+                            <li><a href="">SERVICE MY VEHICLE</a></li>
+                            <li><a href="">WARRANTY CONDITIONS</a></li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="index2.html#">SPARE PARTS</a>
-                        <i class="bi bi-plus dropdown-icon"></i>
-                        <ul class="sub-menu">
-                            <li><a href="">Car Listing Left Sidebar</a></li>
-                            <li><a href="">Car Listing Right Sidebar</a></li>
-                            <li><a href="">Car Listing No Sidebar</a></li>
-                        </ul>
+                        <a href="#">SPARE PARTS</a>
                     </li>
 
 

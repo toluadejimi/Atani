@@ -277,8 +277,7 @@ About Us
                             </div>
                             <h5>Wide Selection of New <span> Toyotas</span></h5>
                         </div>
-                        <p class="mb-4"> Explore a comprehensive inventory of the latest models, including fuel-efficient hybrids,
-                            powerful SUVs, and dependable trucks.
+                        <p class="mb-4"> Explore a comprehensive inventory of the latest models.<br/><br/>
                         </p>
                     </div>
                 </div>
@@ -315,7 +314,7 @@ About Us
                                 <img src="{{url('')}}/public/assets/img/home1/icon/warranty.svg" alt>
                             </div>
                             <h5>Comprehensive Service<span> Center</span></h5>
-                        </div><p>Our certified technicians use genuine Toyota parts and state-of-the-art equipment to keep your Toyota running smoothly for years to come. We offer convenient scheduling, express service options, and comfortable waiting areas.
+                        </div><p>Our certified technicians use genuine Toyota parts and state-of- the-art equipment to keep your Toyota running smoothly for years to come.<br/><br/>
                         </p>
                     </div>
                 </div>
@@ -340,45 +339,45 @@ About Us
             <div class="row g-4 mb-50">
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
                     <div class="gallery-item">
-                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/gallery-01.png" alt="gallery">
-                        <a href="{{url('')}}/public/assets/img/inner-page/gallery-01.png" data-fancybox="gallery"
+                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/dealer1.jpeg" alt="gallery">
+                        <a href="{{url('')}}/public/assets/img/inner-page/dealer1.jpeg" data-fancybox="gallery"
                            class="gallary-item-overlay"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 d-flex align-items-end wow fadeInUp" data-wow-delay="300ms"
                      data-wow-duration="1500ms">
                     <div class="gallery-item">
-                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/gallery-02.png" alt="gallery">
-                        <a href="{{url('')}}/public/assets/img/inner-page/gallery-02.png" data-fancybox="gallery"
+                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/dealer3.jpeg" alt="gallery">
+                        <a href="{{url('')}}/public/assets/img/inner-page/dealer3.jpeg" data-fancybox="gallery"
                            class="gallary-item-overlay"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
                     <div class="gallery-item">
-                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/gallery-03.png" alt="gallery">
-                        <a href="{{url('')}}/public/assets/img/inner-page/gallery-03.png" data-fancybox="gallery"
+                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/dealer2.jpeg" alt="gallery">
+                        <a href="{{url('')}}/public/assets/img/inner-page/dealer2.jpeg" data-fancybox="gallery"
                            class="gallary-item-overlay"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="1500ms">
                     <div class="gallery-item">
-                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/gallery-04.png" alt="gallery">
-                        <a href="{{url('')}}/public/assets/img/inner-page/gallery-04.png" data-fancybox="gallery"
+                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/dealer4.jpeg" alt="gallery">
+                        <a href="{{url('')}}/public/assets/img/inner-page/dealer4.jpeg" data-fancybox="gallery"
                            class="gallary-item-overlay"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 d-flex align-items-start wow fadeInUp" data-wow-delay="600ms"
                      data-wow-duration="1500ms">
                     <div class="gallery-item">
-                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/gallery-05.png" alt="gallery">
-                        <a href="{{url('')}}/public/assets/img/inner-page/gallery-05.png" data-fancybox="gallery"
+                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/dealer5.jpeg" alt="gallery">
+                        <a href="{{url('')}}/public/assets/img/inner-page/dealer5.jpeg" data-fancybox="gallery"
                            class="gallary-item-overlay"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="700ms" data-wow-duration="1500ms">
                     <div class="gallery-item">
-                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/log-dt-img2.png" alt="gallery">
-                        <a href="{{url('')}}/public/assets/img/inner-page/log-dt-img2.png" data-fancybox="gallery"
+                        <img class="img-fluid" src="{{url('')}}/public/assets/img/inner-page/dealer6.jpeg" alt="gallery">
+                        <a href="{{url('')}}/public/assets/img/inner-page/dealer6.jpeg" data-fancybox="gallery"
                            class="gallary-item-overlay"></a>
                     </div>
                 </div>
@@ -395,84 +394,6 @@ About Us
 
 
 
-    <div class="how-it-work-section mb-100">
-        <div class="container">
-            <div class="row mb-50 wow fadeInUp" data-wow-delay="200ms">
-                <div class="col-lg-12 d-flex align-items-end justify-content-between gap-3 flex-wrap">
-                    <div class="section-title-2">
-                        <h2>How Does It Work</h2>
-                        <p>Here are some of the featured cars in different categories</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="row wow fadeInUp" data-wow-delay="300ms">
-                <div class="col-lg-12">
-                    <div class="work-process-group">
-                        <div class="row justify-content-center g-lg-0 gy-5">
-                            <div class="col-lg-3 col-sm-6">
-                                <div class="single-work-process text-center">
-                                    <div class="step">
-                                        <span>01</span>
-                                    </div>
-                                    <div class="icon">
-                                        <img src="{{url('')}}/public/assets/img/home2/icon/loaction.svg" alt>
-                                    </div>
-                                    <div class="content">
-                                        <h6>Find your Car</h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6">
-                                <div class="single-work-process text-center">
-                                    <div class="step">
-                                        <span>02</span>
-                                    </div>
-                                    <div class="icon">
-                                        <img src="{{url('')}}/public/assets/img/home2/icon/contact.svg" alt>
-                                    </div>
-                                    <div class="content">
-                                        <h6>Contact With Us</h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6">
-                                <div class="single-work-process text-center">
-                                    <div class="step">
-                                        <span>03</span>
-                                    </div>
-                                    <div class="icon">
-                                        <img src="{{url('')}}/public/assets/img/home2/icon/pay.svg" alt>
-                                    </div>
-                                    <div class="content">
-                                        <h6>Pay For The Car</h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6">
-                                <div class="single-work-process text-center">
-                                    <div class="step">
-                                        <span>04</span>
-                                    </div>
-                                    <div class="icon">
-                                        <img src="{{url('')}}/public/assets/img/home2/icon/recieve.svg" alt>
-                                    </div>
-                                    <div class="content">
-                                        <h6>Recieve The Car</h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
 
 @endsection
